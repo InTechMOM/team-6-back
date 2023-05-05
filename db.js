@@ -1,11 +1,5 @@
 import mongoose from 'mongoose';
-
-//const password = 'd3v01';
-//const dbname = 'IntechMom';
-//const DB_URI = `mongodb+srv://devt9:${password}@intechmom-cluster.xz036yq.mongodb.net/${dbname}?retryWrites=true&w=majority`;
-const password = '123456vp';
-const dbname = 'IntechMom';
-const DB_URI = `mongodb+srv://valentinaboya15:${password}@team6.hggznhm.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+import { DB_URI } from './index.js';
 
 export const connectDB = async () => {
   try {

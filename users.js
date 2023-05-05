@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { connectDB } from '../config/db.js';
+//import { connectDB } from '../config/db.js';
 
 const userSchema = mongoose.Schema ({
   name: {
@@ -31,7 +31,6 @@ const userSchema = mongoose.Schema ({
   }
 });
 
-const User = mongoose.model('User', userSchema);
+//const User = mongoose.model('User', userSchema);
 
-//export default User;
 export default mongoose.model('User', userSchema);
