@@ -1,10 +1,19 @@
 import express from 'express';
-import usersRouter from './api/users/router.js'
+import validation from './validator.js';
+import { createUser, listOfUsers, oneUser, modificarUser, eliminarUser } from './controller.js';
 
-const router = express.Router();
-router.use('/api/users', usersRouter)
-router.use((req, res) => {
-  res.status(404).send('Error 404: Page not found');
-});
+const usersRouter = express.Router();
 
-export default router;
+async function initRouter() {
+  await import('../../router.js');
+
+  router.post('/users', validation, createUser);
+  router.get('/users', listOfUsers);
+  router.get('/users/:id', oneUser);
+  router.put('/users/:id', modificarUser);
+  router.delete('/users/:id', eliminarUser);
+}
+
+initRouter();
+
+export default usersRouter;
