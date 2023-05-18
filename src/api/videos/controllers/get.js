@@ -125,7 +125,6 @@ export const allVideos = async (request, response, next) => {
   const filters = { 
     ...email && { email },
     ...url && { url },
-    ...nameTeacher  && { nameTeacher:nameTeacher.toUpperCase() },
   }; 
   const arrayVideos = await VideoProject.find(filters); 
   return response.status(200).json({ 
