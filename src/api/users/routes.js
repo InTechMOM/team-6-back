@@ -4,10 +4,10 @@ import { createUser, listOfUsers, oneUser, modificarUser, eliminarUser } from '.
 
 const usersRouter = express.Router();
 
-usersRouter.post('/users', validation, createUser);
-usersRouter.get('/users', listOfUsers);
-usersRouter.get('/users/:id', oneUser);
-usersRouter.put('/users/:id', modificarUser);
-usersRouter.delete('/users/:id', eliminarUser);
+usersRouter.post('/', validation, createUser);
+usersRouter.get('/', listOfUsers);
+usersRouter.get('/:id', oneUser);
+usersRouter.put('/:id', modificarUser);
+usersRouter.delete('/:id', eliminarUser);
   
 export default usersRouter;

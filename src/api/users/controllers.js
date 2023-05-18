@@ -1,5 +1,26 @@
 import User from '../../models/users.js';
 
+/**
+ * @openapi
+ * /api/users:
+ *  post:
+ *    description: Creation API for users
+ *    parameters:
+ *      - name: name
+ *        in: formData
+ *        type: string
+ *      - name: email
+ *        in: formData
+ *        type: string
+ *      - name: rol
+ *        in: formData
+ *        type: string
+ *    responses:
+ *      200:
+ *        description: User created
+ *      400:
+ *        description: Bad Request
+ */
 const createUser = (req, res) => {
   const user = new User({
     ...req.body,
@@ -31,13 +52,17 @@ const oneUser = (req, res) => {
   const { id } = req.params;
   User
     .findById(id)
-    .then((users) => {
-      console.log('Usuarios encontrados:', users);
-      res.json(users);
+    .then((user) => {
+      if (!user) {
+        res.status(404).json({ message: "User not found" });
+      } else {
+        console.log('Usuario encontrado:', user);
+        res.json(user);
+      }
     })
     .catch((error) => {
-      console.error('Error while getting users:', error);
-      res.status(500).json({ error });
+      console.error('Error al buscar el usuario:', error);
+      res.status(500).json({ message: "Internal server error" });
     });
 };
 
@@ -60,12 +85,16 @@ const eliminarUser = (req, res) => {
   const { id } = req.params;
   User
     .remove({ _id: id })
-    .then((users) => {
-      console.log('Usuarios encontrados:', users);
-      res.json(users);
+    .then((result) => {
+      if (result.deletedCount === 0) {
+        res.status(404).json({ message: "User not found" });
+      } else {
+        console.log('Usuarios eliminados:', result);
+        res.json({ message: "User deleted successfully" });
+      }
     })
     .catch((error) => {
-      console.error('Error while getting users:', error);
+      console.error('Error al eliminar el usuario:', error);
       res.status(500).json({ error });
     });
 };
