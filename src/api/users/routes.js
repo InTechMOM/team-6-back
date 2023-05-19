@@ -1,7 +1,7 @@
 import express from 'express';
 import validation from './validation.js';
 import { createUser } from './post.js';
-import { listOfUsers, oneUser,  } from './get.js';
+import { listOfUsers, oneUser } from './get.js';
 import {  modificarUser } from './put.js';
 import { eliminarUser } from './delete.js';
 
