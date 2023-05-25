@@ -4,9 +4,11 @@ import { port } from './config/index.js';
 import { connectDB } from './config/dbConnection.js';
 import router from './router.js';
 import { openApiSpecification } from './config/swagger.js';
+import cors from 'cors';
 
 async function main() {
   const app = express();
+  app.use(cors());
   app.use(express.json());
   app.get('/', (request, response, error) => {
     response.send('status: ok');
