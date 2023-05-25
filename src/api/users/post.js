@@ -5,6 +5,7 @@ import User from '../../models/users.js';
  * /api/users:
  *  post:
  *    description: Creation API for users
+ *    tags: [User]
  *    parameters:
  *      - name: name
  *        in: formData
