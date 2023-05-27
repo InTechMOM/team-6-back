@@ -3,25 +3,26 @@ import User from '../../models/users.js';
 /**
  * @openapi
  * /api/users:
- *  post:
- *    description: Creation API for users
- *    tags: [User]
- *    parameters:
- *      - name: name
- *        in: formData
- *        type: string
- *      - name: email
- *        in: formData
- *        type: string
- *      - name: rol
- *        in: formData
- *        type: string
- *    responses:
- *      200:
- *        description: User created
- *      400:
- *        description: Bad Request
+ *   post:
+ *     tags: [User] 
+ *     summary: Creation API for users
+ *     parameters:
+ *       - name: name
+ *         in: formData
+ *         type: string
+ *       - name: email
+ *         in: formData
+ *         type: string
+ *       - name: rol
+ *         in: formData
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: User created
+ *       400:
+ *         description: Bad Request
  */
+
 const createUser = (req, res) => {
   const user = new User({
     ...req.body,

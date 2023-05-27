@@ -11,7 +11,7 @@ const swaggerOptions = {
   apis: [
     'app.js',
     "./src/api/users/post.js",
-    "./src/api/userslogin.js",
+    "./src/api/users/login.js",
     "./src/api/users/get.js",
     "./src/api/users/put.js",
     "./src/api/users/delete.js",
