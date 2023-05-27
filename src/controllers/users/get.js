@@ -34,26 +34,6 @@ import User from '../../models/users.js';
  *     description: Unknown Error
  */
 
-components:
-  schemas:
-    User:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        email:
-          type: string
-        rol:
-          type: string
-      required:
-        - id
-        - name
-        - email
-        - rol
-
-
 /**
  * @openapi
  * /api/users/{id}:

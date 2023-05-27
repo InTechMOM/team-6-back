@@ -3,7 +3,7 @@ import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import { port } from './config/index.js';
 import { connectDB } from './config/dbConnection.js';
-import router from './router.js';
+import router from './routes/userRouter.js';
 import { openApiSpecification } from './config/swagger.js';
 
 async function main() {

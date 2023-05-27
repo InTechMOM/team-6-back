@@ -1,4 +1,4 @@
-import VideoProject from "../../../models/video.js";
+import VideoProject from "../../models/video.js";
 
 /**
  * @openapi 
