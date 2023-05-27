@@ -4,8 +4,8 @@ import User from '../../models/users.js';
  * @openapi
  * /api/users:
  *   post:
- *     tags: [User] 
  *     summary: Creation API for users
+ *     tags: [User] 
  *     parameters:
  *       - name: name
  *         in: formData

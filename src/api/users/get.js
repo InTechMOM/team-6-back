@@ -9,17 +9,14 @@ import User from '../../models/users.js';
  *   parameters:
  *    - in: query
  *      name: name
- *      description: Query for name
  *      schema:
  *        type: string
  *    - in: query
  *      name: email
- *      description: Query for email
  *      schema:
  *        type: string
  *    - in: query
  *      name: rol
- *      description: Query for rol
  *      schema:
  *        type: string
  *   responses:
@@ -30,12 +27,32 @@ import User from '../../models/users.js';
  *       schema:
  *        type: array
  *        items:
- *         $ref: '#/components/schemas/User'
+ *          $ref: '#/components/schemas/User'
  *    400:
  *     description: Something went wrong
  *    500:
- *     description: UnKwnown Error 
+ *     description: Unknown Error
  */
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        rol:
+          type: string
+      required:
+        - id
+        - name
+        - email
+        - rol
+
 
 /**
  * @openapi
