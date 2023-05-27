@@ -7,8 +7,6 @@ import { videosId , allVideos } from "../controllers/get.js";
 import videoEdit from "../controllers/patch.js";
 import videoDelete from "../controllers/delete.js";
 
-//videos
-
 //Cargar video
 videosRouter.post("/upload", upload);
 
