@@ -1,6 +1,5 @@
 import User from '../../models/users.js';
-import User from "../../../models/user.js";
-import { schemaLogin } from "./validation.js";
+import { loginSchema } from "../validation/validationUser.js";
 
 /**
  * @openapi 
@@ -57,11 +56,11 @@ import { schemaLogin } from "./validation.js";
 
 const login = async (request, response, next) => {
 try {
-  const {error} = schemaLogin.validate(request.body);
+  const {error} = loginSchema.validate(request.body);
   if (error) { 
   return response.status(400).json({error: "Bad Request"}) 
   };
-  const userValidation = await User.findOne({ email:request.body.email , rol:request.body.rol }) 
+  const userValidation = await User.findOne({ email:request.body.email , role:request.body.role }) 
   if (!userValidation)
   return response.status(400).json({error: "Unauthorized Access"});
    response.status(200).json("Welcome " + userValidation.name)
