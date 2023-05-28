@@ -4,7 +4,7 @@ const userSchema = Joi.object({
   name: Joi.string().required(),
   lastname: Joi.string().required(),
   email: Joi.string().email().required(),
-  rol: Joi.string().valid('student', 'teacher').required(),
+  role: Joi.string().valid('student', 'teacher').required(),
 });
 
 const validation = (req, res, next) => {
