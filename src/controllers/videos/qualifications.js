@@ -15,9 +15,4 @@ export const patchVideo = async (request, response) => {
   }
   const updatedVideo = await Video.findByIdAndUpdate(id , request.body, { new: true});
   return response.status(200).json(updatedVideo);
-
 }
-
-
-
-
