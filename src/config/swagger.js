@@ -8,6 +8,11 @@ const swaggerOptions = {
       version: '1.0.0',
     },
   },
+  servers: [
+    {
+      url: "http://localhost:3000"
+    }
+  ],
   apis: [
     'app.js',
     "./src/controllers/users/post.js",
@@ -20,6 +25,7 @@ const swaggerOptions = {
     "./src/controllers/videos/patch.js",
     "./src/controllers/videos/delete.js",
     "./src/controllers/videos/qualification/patch.js"
-]};
+  ]
+};
 
 export const openApiSpecification = swaggerJSDoc(swaggerOptions);

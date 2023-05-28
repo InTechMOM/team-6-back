@@ -20,7 +20,14 @@ import User from '../../models/users.js';
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/User'
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: string
+ *                 name:
+ *                   type: string
+ *                 email:
+ *                   type: string
  *             example:
  *               id: 987
  *               name: Nombre A
@@ -34,6 +41,7 @@ import User from '../../models/users.js';
  *       500:
  *         description: Internal server error. An unknown error occurred.
  */
+
 const eliminarUser = (req, res) => {
   const { id } = req.params;
   User

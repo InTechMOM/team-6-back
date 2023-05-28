@@ -31,7 +31,14 @@ import User from '../../models/users.js';
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/User'
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: string
+ *                   name:
+ *                     type: string
+ *                   email:
+ *                     type: string
  *       400:
  *         description: Bad request. Something went wrong with the request.
  *       500:
@@ -57,7 +64,14 @@ import User from '../../models/users.js';
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/User'
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: string
+ *                 name:
+ *                   type: string
+ *                 email:
+ *                   type: string
  *       404:
  *         description: User not found. The specified ID does not exist.
  *       400:
@@ -67,6 +81,7 @@ import User from '../../models/users.js';
  *       500:
  *         description: Internal server error. An unknown error occurred.
  */
+
 const listOfUsers = (req, res) => {
   const list = User
     .find()

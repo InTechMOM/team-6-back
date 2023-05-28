@@ -35,7 +35,17 @@ import { schemaLogin } from "./validation.js";
  *         application/json:
  *           schema:
  *             type: object
- *             $ref: '#/components/schemas/Login'
+ *             properties:
+ *               email:
+ *                 type: string
+ *               role:
+ *                 type: string
+ *             required:
+ *               - email
+ *               - role
+ *             example:
+ *               email: docente@example.com
+ *               role: Teacher
  *     responses:
  *       201:
  *         description: User login successful

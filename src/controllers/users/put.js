@@ -19,7 +19,13 @@ import User from '../../models/users.js';
  *         application/json:
  *           schema:
  *             type: object
- *             $ref: '#/components/schemas/UserUpdate'
+ *             properties:
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               role:
+ *                 type: string
  *     responses:
  *       201:
  *         description: User updated successfully
