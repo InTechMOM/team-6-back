@@ -2,9 +2,9 @@ import Joi from "joi";
 
 //Esquema de carga de Video
 export const SchemaUpload =   Joi.object ({
-    email: Joi.string().required().min(8).max(32).email({minDomainSegments:2, tlds:{allow:["com","net"]}}),
+    email: Joi.string().required().min(5).max(40).email({minDomainSegments:2, tlds:{allow:["com","net"]}}),
     url: Joi.string().required().uri().regex(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i),
-    nameTeacher: Joi.string().required().min(3).max(32).trim().strict(),
+    nameTeacher: Joi.string().required().min(1).max(40).trim().strict(),
     skills: {
         communication: Joi.number().min(0).max(5),
         collaboration: Joi.number().min(0).max(5),

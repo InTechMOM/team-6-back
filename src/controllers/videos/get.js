@@ -1,7 +1,6 @@
 import User from "../../../models/user.js";
 import VideoProject from "../../../models/video.js"
 
-
 /**
  * @openapi 
  *  components:
@@ -31,9 +30,9 @@ import VideoProject from "../../../models/video.js"
  *      - url
  *      - nameTeacher
  *     example:
- *      email: some@example.com
- *      url: https://www.youtube.com/watch?v=T1QFGwOnQxQ
- *      nameTeacher: Nicole Castro
+ *      email: mariana@example.com
+ *      url: https://www.youtube.com/watch?v=N2Uquz_ekXI&list=RDEMy1jlKyX_GYhAAPvBR43tFQ&index=21&ab_channel=ElCuartetodeNos-Topic
+ *      teacherName: Karen Eche
  */
 
 /**

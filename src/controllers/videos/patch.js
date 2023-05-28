@@ -12,21 +12,21 @@ import { SchemaUpdate } from "./validation.js";
  *        type: string
  *      url:
  *        type: string
- *      nameTeacher:
+ *      teacherName:
  *        type: string
  *     required:
  *      - url
- *      - nameTeacher
+ *      - teacherName
  *     example:
- *      url: https://www.youtube.com/watch?v=T1QFGwOnQxQ
- *      nameTeacher: Nicole Castro
+ *      url: https://www.youtube.com/watch?v=N2Uquz_ekXI&list=RDEMy1jlKyX_GYhAAPvBR43tFQ&index=21&ab_channel=ElCuartetodeNos-Topic
+ *      teacherName: Karen Eche
  */
 
 /**
  * @openapi
  * /api/videos/{id}:
  *  patch:
- *   summary: Update a video for id video
+ *   summary: Update a video by ID
  *   tags: [Videos]
  *   parameters:
  *    - in: path
@@ -34,7 +34,7 @@ import { SchemaUpdate } from "./validation.js";
  *      schema:
  *        type: string
  *      required: true
- *      description: The video id
+ *      description: The video ID
  *   requestBody:
  *    required: true
  *    content:
@@ -44,15 +44,14 @@ import { SchemaUpdate } from "./validation.js";
  *       $ref: '#/components/schemas/VideoprojectUpdateSchema'
  *   responses:
  *    201:
- *     description: Video Update
+ *     description: Video updated successfully
  *    400:
- *     description: Something went wrong
+ *     description: Bad request. Something went wrong.
  *    404:
- *     description: Video Not Found
+ *     description: Video not found.
  *    500:
- *     description: UnKwnown Error 
+ *     description: Unknown error.
  */
-
 
 //Modifica video por su propio id (unidad)
 const videoEdit = async (request, response, next) => { 
@@ -62,7 +61,7 @@ const videoEdit = async (request, response, next) => {
     return response.status(400).json({error: error.details[0].message}) 
   }
   
-  //Busqueda por Id del video
+  //Búsqueda por id del video
   const { url , nameTeacher } = request.body
  try { 
     const videoUpdate = await VideoProject.findByIdAndUpdate(id , { 

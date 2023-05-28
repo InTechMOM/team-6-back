@@ -16,6 +16,8 @@ import { SchemaUpload } from "./validation.js";
  *      nameTeacher:
  *        type: string
  *      skills:
+ *        type: object
+ *        properties:
  *          communication:
  *            type: string
  *          collaboration:
@@ -31,9 +33,9 @@ import { SchemaUpload } from "./validation.js";
  *      - url
  *      - nameTeacher
  *     example:
- *      email: some1@example.com
- *      url: https://www.youtube.com/watch?v=T1QFGwOnQxQ
- *      nameTeacher: Nicole Castro
+ *      email: mariana@example.com
+ *      url: https://www.youtube.com/watch?v=N2Uquz_ekXI&list=RDEMy1jlKyX_GYhAAPvBR43tFQ&index=21&ab_channel=ElCuartetodeNos-Topic
+ *      teacherName: Karen Eche
  */
 
 /**
@@ -53,9 +55,9 @@ import { SchemaUpload } from "./validation.js";
  *    201:
  *     description: Video Created
  *    400:
- *     description: Something went wrong
+ *     description: Bad request. Something went wrong.
  *    500:
- *     description: UnKwnown Error 
+ *     description: Unknown error.
  */
 
 export const upload = async (request, response, next) => {
@@ -70,7 +72,7 @@ try {
   //Lectura de datos
   const { email , url , nameTeacher } = request.body
 
-  //Busqueda por email del estudiante en User
+  //Búsqueda por email del estudiante en User
     const userId = await User.findOne({email, rol:"Soy Estudiante"}).populate([{
     path: "authorId", 
     select: "_id",
@@ -83,7 +85,7 @@ try {
     })
   }
 
-  //Busqueda por nombre del docente en User
+  //Búsqueda por nombre del docente en User
     const teacherId = await User.findOne({name:nameTeacher.toUpperCase(), rol:"Soy Docente" }).populate([{
     path: "teacherId", 
     select: "_id",

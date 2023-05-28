@@ -4,23 +4,26 @@ import User from '../../models/users.js';
  * @openapi
  * /api/users:
  *   post:
- *     summary: Creation API for users
- *     tags: [User] 
- *     parameters:
- *       - name: name
- *         in: formData
- *         type: string
- *       - name: email
- *         in: formData
- *         type: string
- *       - name: rol
- *         in: formData
- *         type: string
+ *     summary: Create a user
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               role:
+ *                 type: string
  *     responses:
  *       200:
- *         description: User created
+ *         description: User created successfully
  *       400:
- *         description: Bad Request
+ *         description: Bad request. Invalid data provided.
  */
 
 const createUser = (req, res) => {

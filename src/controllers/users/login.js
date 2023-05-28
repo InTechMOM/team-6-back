@@ -4,45 +4,47 @@ import { schemaLogin } from "./validation.js";
 
 /**
  * @openapi 
- *  components:
+ * components:
  *   schemas:
- *    Login:
- *     type: object
- *     properties:
- *      email:
- *        type: string
- *      rol:
- *        type: string
- *     required:
- *      - email
- *      - rol
- *     example:
- *      email: some@example.com
- *      rol: Soy Docente
- * 
+ *     Login:
+ *       type: object
+ *       properties:
+ *         email:
+ *           type: string
+ *           description: The user's email.
+ *         role:
+ *           type: string
+ *           description: The user's role.
+ *       required:
+ *         - email
+ *         - role
+ *       example:
+ *         email: docente@example.com
+ *         role: Teacher
  */
 
 /**
  * @openapi
  * /api/login:
- *  post:
- *   summary: Access of users
- *   tags: [User]
- *   requestBody:
- *    required: true
- *    content:
- *     application/json:
- *      schema:
- *       type: object
- *       $ref: '#/components/schemas/Login'
- *   responses:
- *    201:
- *     description: Access a user
- *    400:
- *     description: Unauthorized Access
- *    500:
- *     description: UnKwnown Error 
+ *   post:
+ *     summary: User login
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             $ref: '#/components/schemas/Login'
+ *     responses:
+ *       201:
+ *         description: User login successful
+ *       400:
+ *         description: Unauthorized access
+ *       500:
+ *         description: Unknown error
  */
+
 const login = async (request, response, next) => {
 try {
   const {error} = schemaLogin.validate(request.body);

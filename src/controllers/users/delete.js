@@ -3,33 +3,36 @@ import User from '../../models/users.js';
 /**
  * @openapi
  * /api/users/{id}:
- *  delete:
- *   summary: Delete a user
- *   tags: [User]
- *   parameters:
- *    - in: path
- *      name: id
- *      schema:
- *        type: string
- *      required: true
- *      description: The user id
- *   responses:
- *    200:
- *     description: User
- *     content:
- *      application/json:
- *       schema:
- *        type: object
- *        items:
- *         $ref: '#/components/schemas/User'
- *    400:
- *     description: Something went wrong
- *    404:
- *     description: User Not Found
- *    422:
- *     description: Id Not Valid
- *    500:
- *     description: UnKwnown Error 
+ *   delete:
+ *     summary: Delete a user
+ *     tags: [User]
+ *     description: Delete a user by their ID.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The ID of the user to delete.
+ *     responses:
+ *       200:
+ *         description: Successful operation. Returns the deleted user.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *             example:
+ *               id: 987
+ *               name: Nombre A
+ *               email: nombrea@example.com
+ *       400:
+ *         description: Bad request. Something went wrong with the request.
+ *       404:
+ *         description: User not found. The specified ID does not exist.
+ *       422:
+ *         description: Unprocessable entity. The provided ID is not valid.
+ *       500:
+ *         description: Internal server error. An unknown error occurred.
  */
 const eliminarUser = (req, res) => {
   const { id } = req.params;
