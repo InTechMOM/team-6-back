@@ -1,6 +1,26 @@
 import User from '../../models/users.js';
 
 /**
+ * @openapi 
+ *  components:
+ *   schemas:
+ *    UserUpdate:
+ *     type: object
+ *     properties:
+ *      name:
+ *        type: string
+ *      email:
+ *        type: string
+ *      role:
+ *        type: string
+ *     required:
+ *      - name
+ *     example:
+ *      name: Nombre A
+ * 
+ */
+
+/**
  * @openapi
  * /api/users/{id}:
  *   put:

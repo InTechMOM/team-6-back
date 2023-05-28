@@ -4,6 +4,7 @@ import swaggerUi from 'swagger-ui-express';
 import { port } from './config/index.js';
 import { connectDB } from './config/dbConnection.js';
 import router from './routes/userRouter.js';
+import videoRouter from './routes/videoRouter.js';
 import { openApiSpecification } from './config/swagger.js';
 
 async function main() {
@@ -11,11 +12,12 @@ async function main() {
   app.use(cors());
   app.use(express.json());
   app.get('/', (request, response, error) => {
-    response.send('status: ok');
+    response.send('Status: OK');
   });
   app.use('/docs', swaggerUi.serve);
   app.get('/docs', swaggerUi.setup(openApiSpecification)); 
-  app.use('/', router);
+  app.use('/users', router);
+  app.use('/videos', videoRouter);
 
   await connectDB();
 

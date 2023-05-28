@@ -1,6 +1,30 @@
 import User from '../../models/users.js';
 
 /**
+ * @openapi 
+ *  components:
+ *   schemas:
+ *    User:
+ *     type: object
+ *     properties:
+ *      name:
+ *        type: string
+ *      email:
+ *        type: string
+ *      role:
+ *        type: string
+ *     required:
+ *      - name
+ *      - email
+ *      - role
+ *     example:
+ *      name: Nombre 
+ *      lastname: A
+ *      email: nombrea@example.com
+ *      role: student
+ */
+
+/**
  * @openapi
  * /api/users:
  *   get:
