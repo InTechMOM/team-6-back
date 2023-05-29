@@ -1,5 +1,5 @@
-import VideoProject from "../../../models/video.js";
-import { SchemaUpdate } from "./validation.js";
+import VideoProject from "../../models/video.js";
+import { SchemaUpdate } from "../validation/validationVideo.js";
 
 /**
  * @openapi 

@@ -1,6 +1,6 @@
-import User from "../../../models/user.js";
-import VideoProject from "../../../models/video.js";
-import { SchemaUpload } from "./validation.js";
+import User from "../../models/users.js";
+import VideoProject from "../../models/video.js";
+import { SchemaUpload } from "../validation/validationVideo.js";
 
 /**
  * @openapi 
@@ -73,7 +73,7 @@ try {
   const { email , url , nameTeacher } = request.body
 
   //Búsqueda por email del estudiante en User
-    const userId = await User.findOne({email, rol:"Soy Estudiante"}).populate([{
+    const userId = await User.findOne({email, role:"Soy Estudiante"}).populate([{
     path: "authorId", 
     select: "_id",
     strictPopulate: false
@@ -86,7 +86,7 @@ try {
   }
 
   //Búsqueda por nombre del docente en User
-    const teacherId = await User.findOne({name:nameTeacher.toUpperCase(), rol:"Soy Docente" }).populate([{
+    const teacherId = await User.findOne({name:nameTeacher, role:"Soy Docente" }).populate([{
     path: "teacherId", 
     select: "_id",
     strictPopulate: false
@@ -102,7 +102,7 @@ try {
   const newVideo = new VideoProject ({
     email,
     url,
-    nameTeacher:nameTeacher.toUpperCase(),
+    nameTeacher:nameTeacher,
     authorId: userId._id,
     teacherId: teacherId._id
   })

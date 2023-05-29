@@ -1,31 +1,31 @@
 ###
-POST https://team-6-back.onrender.com/api/users HTTP/1.1
+POST https://team-6-back.onrender.com/controllers/users HTTP/1.1
 Content-Type: application/json
 
 {
   "name": "Lupe",
   "lastname": "Gallino Alarcón",
   "email": "gallinolupe@gmail.com",
-  "rol": "student"
+  "role": "student"
 }
 
 ###
-GET https://team-6-back.onrender.com/api/users HTTP/1.1
+GET https://team-6-back.onrender.com/controllers/users HTTP/1.1
 
 ###
-GET https://team-6-back.onrender.com/api/users/"id" HTTP/1.1
+GET https://team-6-back.onrender.com/controllers/users/"id" HTTP/1.1
 
 ###
-PUT https://team-6-back.onrender.com/api/users/"id" HTTP/1.1
+PUT https://team-6-back.onrender.com/controllers/users/"id" HTTP/1.1
 Content-Type: application/json
 
 {
   "name": "Lupe",
   "lastname": "Gallino Alarcón",
   "email": "gallinolupe@gmail.com",
-  "rol": "student"
+  "role": "student"
 }
 
 ###
-DELETE https://team-6-back.onrender.com/api/users/643b307310757d4a9d1f5b13 HTTP/1.1
+DELETE https://team-6-back.onrender.com/controllers/users/643b307310757d4a9d1f5b13 HTTP/1.1
 Content-Type: application/json

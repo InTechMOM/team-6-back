@@ -54,7 +54,7 @@ import { loginSchema } from "../validation/validationUser.js";
  *         description: Unknown error
  */
 
-const login = async (request, response, next) => {
+export const login = async (request, response, next) => {
 try {
   const {error} = loginSchema.validate(request.body);
   if (error) { 
@@ -67,6 +67,4 @@ try {
   } catch (error) { 
     next (error);
   };
-}
-
-export default login ;
+}; 
