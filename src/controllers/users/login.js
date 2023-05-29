@@ -53,7 +53,6 @@ import { loginSchema } from "../validation/validationUser.js";
  *       500:
  *         description: Unknown error
  */
-
 export const login = async (request, response, next) => {
 try {
   const {error} = loginSchema.validate(request.body);

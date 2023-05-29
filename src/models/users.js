@@ -5,16 +5,9 @@ const userSchema = mongoose.Schema ({
     type: String,
     required: true,
     minlength:[1,"La cadena es más corta de la requerida"],
-    maxlength:20,
+    maxlength:50,
     noWhiteSpaces:4,
     unique: true, 
-  },
-  lastname: {
-    type: String,
-    required: true,
-    minlength:[1,"La cadena es más corta de la requerida"],
-    maxlength:20,
-    noWhiteSpaces:4,
   },
   email: {
     type: String,

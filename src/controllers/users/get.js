@@ -105,7 +105,6 @@ import User from '../../models/users.js';
  *       500:
  *         description: Internal server error. An unknown error occurred.
  */
-
 const listOfUsers = (req, res) => {
   const list = User
     .find()

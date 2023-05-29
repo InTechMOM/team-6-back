@@ -15,17 +15,19 @@ import User from '../../models/users.js';
  *             properties:
  *               name:
  *                 type: string
+ *                 example: lupe
  *               email:
  *                 type: string
+ *                 example: lupe@email.com
  *               role:
  *                 type: string
+ *                 example: student
  *     responses:
  *       200:
  *         description: User created successfully
  *       400:
  *         description: Bad request. Invalid data provided.
  */
-
 const createUser = (req, res) => {
   const user = new User({
     ...req.body,

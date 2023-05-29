@@ -42,10 +42,13 @@ import User from '../../models/users.js';
  *             properties:
  *               name:
  *                 type: string
+ *                 example: lupe
  *               email:
  *                 type: string
+ *                 example: lupe@email.com
  *               role:
  *                 type: string
+ *                 example: student
  *     responses:
  *       201:
  *         description: User updated successfully
@@ -58,7 +61,6 @@ import User from '../../models/users.js';
  *       500:
  *         description: Unknown error
  */
-
 const modificarUser = (req, res) => {
   const { id } = req.params;
   const { name, lastname, email, rol } = req.body;

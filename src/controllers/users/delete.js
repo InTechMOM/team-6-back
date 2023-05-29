@@ -41,7 +41,6 @@ import User from '../../models/users.js';
  *       500:
  *         description: Internal server error. An unknown error occurred.
  */
-
 const eliminarUser = (req, res) => {
   const { id } = req.params;
   User
