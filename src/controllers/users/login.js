@@ -24,7 +24,7 @@ import { loginSchema } from "../validation/validationUser.js";
 
 /**
  * @openapi
- * /api/login:
+ * /api/users/login:
  *   post:
  *     summary: User login
  *     tags: [User]
