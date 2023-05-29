@@ -1,14 +1,36 @@
 {
   "name": "mvp",
   "version": "1.0.0",
-  "description": "",
+  "type": "module",
+  "description": "\"test server\"",
   "main": "app.js",
-  "dependencies": {
-  },
   "scripts": {
     "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Intech Mom",
-  "type": "module"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intechmom/team-6-back-master.git"
+  },
+  "author": "alarconcita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/intechmom/team-6-back-master/issues"
+  },
+  "homepage": "https://github.com/intechmom/team-6-back-master#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "joi": "^17.9.1",
+    "mongodb": "^5.2.0",
+    "mongoose": "^7.0.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3",
+    "uuid": "^9.0.0"
+  }
 }
