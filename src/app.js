@@ -16,8 +16,8 @@ async function main() {
   });
   app.use('/docs', swaggerUi.serve);
   app.get('/docs', swaggerUi.setup(openApiSpecification)); 
-  app.use('/users', router);
-  app.use('/videos', videoRouter);
+  app.use('/api', router);
+  app.use('/api', videoRouter);
 
   await connectDB();
 
