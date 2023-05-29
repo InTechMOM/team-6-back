@@ -54,7 +54,6 @@ import VideoProject from "../../models/video.js";
  *       500:
  *         description: Unknown error.
  */
-
 const videoDelete = async (request, response, next) => { 
   const id = request.params.id
   try { 
