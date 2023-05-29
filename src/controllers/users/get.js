@@ -106,8 +106,14 @@ import User from '../../models/users.js';
  *         description: Internal server error. An unknown error occurred.
  */
 const listOfUsers = (req, res) => {
-  const list = User
-    .find()
+  const { name, email, role } = req.query;
+  const filters = {
+    ...name && { name },
+    ...email && { email },
+    ...role && { role },
+  };
+  User
+    .find(filters)
     .then((users) => {
       console.log('Usuarios encontrados:', users);
       res.json(users);
